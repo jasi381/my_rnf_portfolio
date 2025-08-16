@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jasi381.github.io/Rnf-my-personal_portfolio/sitemap.xml

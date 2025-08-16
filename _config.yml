@@ -1,0 +1,21 @@
+# Enable compression
+plugins:
+  - jekyll-gzip
+  - jekyll-sitemap
+
+# Optimize build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Enable compression
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  blanklines: false
+  profile: false
+  startings: [html, head, body]
