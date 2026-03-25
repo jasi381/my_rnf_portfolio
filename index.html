@@ -1,1209 +1,1295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jasmeet Singh - Android Developer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            /* Material 3 Expressive Colors */
-            --md-sys-color-primary: #6750A4;
-            --md-sys-color-on-primary: #FFFFFF;
-            --md-sys-color-primary-container: #EADDFF;
-            --md-sys-color-on-primary-container: #21005D;
-            --md-sys-color-secondary: #625B71;
-            --md-sys-color-on-secondary: #FFFFFF;
-            --md-sys-color-secondary-container: #E8DEF8;
-            --md-sys-color-on-secondary-container: #1D192B;
-            --md-sys-color-tertiary: #7D5260;
-            --md-sys-color-on-tertiary: #FFFFFF;
-            --md-sys-color-tertiary-container: #FFD8E4;
-            --md-sys-color-on-tertiary-container: #31111D;
-            --md-sys-color-error: #BA1A1A;
-            --md-sys-color-on-error: #FFFFFF;
-            --md-sys-color-error-container: #FFDAD6;
-            --md-sys-color-on-error-container: #410002;
-            --md-sys-color-background: #FFFBFE;
-            --md-sys-color-on-background: #1C1B1F;
-            --md-sys-color-surface: #FFFBFE;
-            --md-sys-color-on-surface: #1C1B1F;
-            --md-sys-color-surface-variant: #E7E0EC;
-            --md-sys-color-on-surface-variant: #49454F;
-            --md-sys-color-outline: #79747E;
-            --md-sys-color-outline-variant: #CAC4D0;
-            --md-sys-color-shadow: #000000;
-            --md-sys-color-scrim: #000000;
-            --md-sys-color-inverse-surface: #313033;
-            --md-sys-color-inverse-on-surface: #F4EFF4;
-            --md-sys-color-inverse-primary: #D0BCFF;
-            --md-sys-color-surface-tint: #6750A4;
-            
-            /* Material 3 Elevation */
-            --md-sys-elevation-level0: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-            --md-sys-elevation-level1: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-            --md-sys-elevation-level2: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-            --md-sys-elevation-level3: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-            --md-sys-elevation-level4: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-            --md-sys-elevation-level5: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: var(--md-sys-color-on-background);
-            background: var(--md-sys-color-background);
-            overflow-x: hidden;
-        }
-
-        /* Typography - Material 3 */
-        .display-large { font-size: 3.5rem; font-weight: 400; line-height: 1.12; }
-        .display-medium { font-size: 2.8rem; font-weight: 400; line-height: 1.16; }
-        .display-small { font-size: 2.25rem; font-weight: 400; line-height: 1.22; }
-        .headline-large { font-size: 2rem; font-weight: 400; line-height: 1.25; }
-        .headline-medium { font-size: 1.75rem; font-weight: 400; line-height: 1.29; }
-        .headline-small { font-size: 1.5rem; font-weight: 400; line-height: 1.33; }
-        .title-large { font-size: 1.375rem; font-weight: 400; line-height: 1.27; }
-        .title-medium { font-size: 1rem; font-weight: 500; line-height: 1.5; }
-        .title-small { font-size: 0.875rem; font-weight: 500; line-height: 1.43; }
-        .body-large { font-size: 1rem; font-weight: 400; line-height: 1.5; }
-        .body-medium { font-size: 0.875rem; font-weight: 400; line-height: 1.43; }
-        .body-small { font-size: 0.75rem; font-weight: 400; line-height: 1.33; }
-        .label-large { font-size: 0.875rem; font-weight: 500; line-height: 1.43; }
-        .label-medium { font-size: 0.75rem; font-weight: 500; line-height: 1.33; }
-        .label-small { font-size: 0.6875rem; font-weight: 500; line-height: 1.45; }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
-
-        /* Hero Section - Minimal whitespace */
-        .hero {
-            background: linear-gradient(135deg, var(--md-sys-color-primary-container) 0%, var(--md-sys-color-secondary-container) 100%);
-            padding: 32px 0 48px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23CAC4D0'%3e%3cpath d='m0 .5 32 32M32 .5 0 32'/%3e%3c/svg%3e") center/32px 32px;
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 8px 16px;
-            background: var(--md-sys-color-primary);
-            color: var(--md-sys-color-on-primary);
-            border-radius: 20px;
-            margin-bottom: 16px;
-            box-shadow: var(--md-sys-elevation-level2);
-        }
-
-        .hero-badge::before {
-            content: '●';
-            color: var(--md-sys-color-tertiary);
-            margin-right: 8px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .hero h1 {
-            margin-bottom: 16px;
-            color: var(--md-sys-color-on-primary-container);
-        }
-
-        .hero-subtitle {
-            color: var(--md-sys-color-on-primary-container);
-            margin-bottom: 24px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 16px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .metric-card {
-            background: var(--md-sys-color-surface);
-            padding: 16px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: var(--md-sys-elevation-level2);
-            border: 1px solid var(--md-sys-color-outline-variant);
-        }
-
-        .metric-value {
-            color: var(--md-sys-color-primary);
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .metric-label {
-            color: var(--md-sys-color-on-surface-variant);
-            font-weight: 500;
-        }
-
-        /* Sections */
-        .section {
-            padding: 40px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 32px;
-            color: var(--md-sys-color-on-background);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--md-sys-color-on-surface-variant);
-            margin-bottom: 32px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Impact Cards */
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .impact-card {
-            background: var(--md-sys-color-surface);
-            border-radius: 20px;
-            padding: 24px;
-            box-shadow: var(--md-sys-elevation-level2);
-            border: 1px solid var(--md-sys-color-outline-variant);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .impact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-tertiary) 100%);
-        }
-
-        .impact-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--md-sys-elevation-level4);
-        }
-
-        .impact-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--md-sys-color-primary-container);
-            color: var(--md-sys-color-on-primary-container);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-            font-size: 20px;
-        }
-
-        .impact-title {
-            color: var(--md-sys-color-on-surface);
-            margin-bottom: 8px;
-        }
-
-        .impact-description {
-            color: var(--md-sys-color-on-surface-variant);
-        }
-
-        /* Product Showcase */
-        .product-section {
-            background: var(--md-sys-color-surface-variant);
-        }
-
-        .product-showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 24px;
-        }
-
-        .product-card {
-            background: var(--md-sys-color-surface);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: var(--md-sys-elevation-level3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--md-sys-elevation-level5);
-        }
-
-        .product-header {
-            padding: 24px;
-            background: var(--md-sys-color-primary);
-            color: var(--md-sys-color-on-primary);
-            position: relative;
-        }
-
-        .product-header.secondary {
-            background: var(--md-sys-color-tertiary);
-            color: var(--md-sys-color-on-tertiary);
-        }
-
-        .product-badge {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 4px 12px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            display: inline-block;
-        }
-
-        .product-title {
-            margin-bottom: 8px;
-        }
-
-        .product-subtitle {
-            opacity: 0.9;
-        }
-
-        .product-content {
-            padding: 20px;
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .feature-check {
-            width: 20px;
-            height: 20px;
-            background: var(--md-sys-color-primary);
-            color: var(--md-sys-color-on-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .feature-text {
-            color: var(--md-sys-color-on-surface-variant);
-        }
-
-        /* Development Journey with Simple Chart */
-        .timeline-section {
-            background: var(--md-sys-color-background);
-        }
-
-        .development-progress {
-            background: var(--md-sys-color-surface);
-            border-radius: 24px;
-            padding: 32px;
-            margin-bottom: 32px;
-            box-shadow: var(--md-sys-elevation-level2);
-            border: 1px solid var(--md-sys-color-outline-variant);
-        }
-
-        .progress-header {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            text-align: center;
-        }
-
-        .total-commits {
-            order: 1;
-        }
-
-        .commit-number {
-            color: var(--md-sys-color-primary);
-            font-weight: 700;
-            display: block;
-            font-size: 3rem;
-        }
-
-        .commit-label {
-            color: var(--md-sys-color-on-surface-variant);
-            font-weight: 500;
-            margin-top: 4px;
-        }
-
-        .progress-visual {
-            order: 2;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .simple-chart {
-            background: var(--md-sys-color-surface);
-            border-radius: 16px;
-            padding: 24px;
-            border: 1px solid var(--md-sys-color-outline-variant);
-            box-shadow: var(--md-sys-elevation-level2);
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .chart-header {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .chart-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--md-sys-color-on-surface);
-            margin-bottom: 4px;
-        }
-
-        .chart-subtitle {
-            font-size: 0.9rem;
-            color: var(--md-sys-color-on-surface-variant);
-            margin: 0;
-        }
-
-        .chart-container {
-            position: relative;
-        }
-
-        .chart-bars {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            height: 200px;
-            padding: 0 16px;
-            border-bottom: 2px solid var(--md-sys-color-outline-variant);
-            border-left: 2px solid var(--md-sys-color-outline-variant);
-        }
-
-        .bar-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex: 1;
-            max-width: 60px;
-        }
-
-        .bar {
-            width: 40px;
-            background: linear-gradient(180deg, #6750A4, #8B5CF6);
-            border-radius: 4px 4px 0 0;
-            position: relative;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding-top: 8px;
-            min-height: 40px;
-            animation: growBar 1.5s ease-out;
-        }
-
-        @keyframes growBar {
-            from {
-                height: 0%;
-                transform: scaleY(0);
-            }
-            to {
-                transform: scaleY(1);
-            }
-        }
-
-        .bar:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 12px rgba(103, 80, 164, 0.3);
-        }
-
-        .peak .bar {
-            background: linear-gradient(180deg, #DC2626, #F97316);
-            box-shadow: 0 0 20px rgba(220, 58, 58, 0.3);
-        }
-
-        .bar-value {
-            color: white;
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-        }
-
-        .peak-badge {
-            background: #FEF3C7;
-            color: #92400E;
-            padding: 2px 6px;
-            border-radius: 8px;
-            font-size: 0.6rem;
-            font-weight: 700;
-            margin-top: 4px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-4px);
-            }
-            60% {
-                transform: translateY(-2px);
-            }
-        }
-
-        .bar-label {
-            margin-top: 8px;
-            font-weight: 600;
-            color: var(--md-sys-color-on-surface);
-            font-size: 0.9rem;
-        }
-
-        .chart-axis {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 8px;
-            padding-left: 16px;
-        }
-
-        .axis-label {
-            font-size: 0.75rem;
-            color: var(--md-sys-color-on-surface-variant);
-        }
-
-        /* Monthly Breakdown Cards */
-        .monthly-breakdown {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .month-card {
-            background: var(--md-sys-color-surface);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--md-sys-elevation-level2);
-            border: 1px solid var(--md-sys-color-outline-variant);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .month-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--md-sys-elevation-level4);
-        }
-
-        .month-card.peak-month {
-            border: 2px solid var(--md-sys-color-primary);
-            background: linear-gradient(145deg, var(--md-sys-color-surface) 0%, var(--md-sys-color-primary-container) 100%);
-        }
-
-        .month-card.peak-month::before {
-            content: '⚡';
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            font-size: 20px;
-        }
-
-        .month-header {
-            padding: 20px 20px 16px 20px;
-            border-bottom: 1px solid var(--md-sys-color-outline-variant);
-            position: relative;
-        }
-
-        .month-name {
-            color: var(--md-sys-color-on-surface);
-            margin-bottom: 8px;
-        }
-
-        .commit-badge {
-            background: var(--md-sys-color-secondary-container);
-            color: var(--md-sys-color-on-secondary-container);
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-weight: 500;
-            display: inline-block;
-        }
-
-        .commit-badge.peak {
-            background: var(--md-sys-color-primary);
-            color: var(--md-sys-color-on-primary);
-            animation: pulse 2s infinite;
-        }
-
-        .peak-label {
-            position: absolute;
-            top: 8px;
-            right: 12px;
-            background: var(--md-sys-color-tertiary);
-            color: var(--md-sys-color-on-tertiary);
-            padding: 2px 8px;
-            border-radius: 8px;
-            font-size: 0.6875rem;
-            font-weight: 600;
-        }
-
-        .month-content {
-            padding: 20px;
-        }
-
-        .milestone-title {
-            color: var(--md-sys-color-on-surface);
-            margin-bottom: 16px;
-        }
-
-        .achievements {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .achievement-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 8px 0;
-        }
-
-        .achievement-icon {
-            font-size: 18px;
-            width: 24px;
-            text-align: center;
-        }
-
-        .achievement-text {
-            color: var(--md-sys-color-on-surface-variant);
-            font-size: 0.875rem;
-            line-height: 1.4;
-        }
-
-        /* Tech Stack */
-        .tech-section {
-            background: var(--md-sys-color-surface-variant);
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 12px;
-        }
-
-        .tech-chip {
-            background: var(--md-sys-color-surface);
-            color: var(--md-sys-color-on-surface);
-            padding: 8px 16px;
-            border-radius: 16px;
-            text-align: center;
-            font-weight: 500;
-            border: 1px solid var(--md-sys-color-outline-variant);
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .tech-chip:hover {
-            background: var(--md-sys-color-primary);
-            color: var(--md-sys-color-on-primary);
-            transform: translateY(-2px);
-            box-shadow: var(--md-sys-elevation-level2);
-        }
-
-        /* CTA */
-        .cta-section {
-            background: var(--md-sys-color-primary);
-            color: var(--md-sys-color-on-primary);
-            text-align: center;
-        }
-
-        .cta-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 24px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .cta-stat {
-            text-align: center;
-        }
-
-        .cta-stat-value {
-            font-weight: 700;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .cta-stat-label {
-            opacity: 0.8;
-        }
-
-        /* Progress Bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            background: var(--md-sys-color-primary);
-            z-index: 1000;
-            transition: width 0.1s ease;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 16px;
-            }
-
-            .hero {
-                padding: 24px 0 32px 0;
-            }
-
-            .section {
-                padding: 32px 0;
-            }
-
-            .product-showcase {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .development-progress {
-                padding: 20px;
-            }
-
-            .progress-header {
-                gap: 16px;
-            }
-
-            .commit-number {
-                font-size: 2.5rem;
-            }
-
-            .simple-chart {
-                padding: 16px;
-            }
-            
-            .chart-bars {
-                height: 160px;
-                padding: 0 8px;
-            }
-            
-            .bar {
-                width: 32px;
-                padding-top: 6px;
-            }
-            
-            .bar-value {
-                font-size: 0.7rem;
-            }
-            
-            .bar-label {
-                font-size: 0.8rem;
-            }
-
-            .monthly-breakdown {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .month-card {
-                margin: 0;
-            }
-
-            .month-header {
-                padding: 16px;
-            }
-
-            .month-content {
-                padding: 16px;
-            }
-
-            .display-large { font-size: 2.5rem; }
-            .display-medium { font-size: 2rem; }
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KinectedCare — Watch Setup Flow</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* === KinectedCare Mobile App Colors === */
+    --primary: #13AE8C;
+    --primary-dark: #0F9577;
+    --primary-text: #000719;
+    --tertiary-24: #C6ECE3;
+    --tertiary-06: #F1FAF8;
+    --grey-200: #F5F5F6;
+    --secondary-400: #9A9CA3;
+    --disabled: #9B9CA3;
+    --white: #FFFFFF;
+    --bg: #FFFFFF;
+
+    /* === FallGuard Watch Colors (for watch illustrations) === */
+    --watch-bg: #0A0E27;
+    --watch-surface: #1A1F3A;
+    --watch-primary: #FF4B6E;
+    --watch-accent: #4ECDC4;
+    --watch-success: #2ECC71;
+    --watch-warning: #FFA726;
+    --watch-text: #FFFFFF;
+    --watch-text-secondary: #B8BBC2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: #E8EEEC;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px;
+  }
+
+  /* === HEADER === */
+  .page-header {
+    text-align: center;
+    margin-bottom: 36px;
+    max-width: 600px;
+  }
+  .page-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-text);
+    letter-spacing: -0.5px;
+  }
+  .page-header p {
+    font-size: 15px;
+    color: var(--secondary-400);
+    margin-top: 6px;
+  }
+  .page-header .badge {
+    display: inline-block;
+    background: var(--tertiary-24);
+    color: var(--primary-dark);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* === PHONE FRAME === */
+  .phone-carousel {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1600px;
+  }
+
+  .screen-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .screen-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .phone-frame {
+    width: 320px;
+    height: 640px;
+    background: var(--bg);
+    border-radius: 36px;
+    box-shadow:
+      0 0 0 2px #D1D5DB,
+      0 20px 60px rgba(0,7,25,0.12),
+      0 4px 16px rgba(0,7,25,0.06);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Status bar */
+  .status-bar {
+    height: 36px;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-text);
+    flex-shrink: 0;
+  }
+  .status-bar .time { font-weight: 700; }
+  .status-icons {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  .status-icons svg { width: 16px; height: 16px; }
+
+  /* Notch */
+  .notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 24px;
+    background: #1a1a1a;
+    border-radius: 0 0 16px 16px;
+    z-index: 10;
+  }
+
+  /* Screen content area */
+  .screen-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  /* === PROGRESS BAR === */
+  .progress-bar-container {
+    padding: 12px 24px 0;
+    flex-shrink: 0;
+  }
+  .progress-track {
+    height: 4px;
+    background: var(--grey-200);
+    border-radius: 100px;
+    overflow: hidden;
+    display: flex;
+    gap: 4px;
+  }
+  .progress-segment {
+    flex: 1;
+    border-radius: 100px;
+    background: var(--grey-200);
+    transition: background 0.3s;
+  }
+  .progress-segment.active {
+    background: var(--primary);
+  }
+
+  .step-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 24px 0;
+    flex-shrink: 0;
+  }
+  .step-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--secondary-400);
+  }
+  .skip-btn {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--secondary-400);
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 4px 0;
+  }
+
+  /* === SCREEN INNER CONTENT === */
+  .inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px 24px;
+  }
+
+  .inner .illustration {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 0 20px;
+  }
+
+  .inner h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary-text);
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+
+  .inner .subtitle {
+    font-size: 14px;
+    color: var(--secondary-400);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  /* Steps list */
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 8px 0 16px;
+  }
+
+  .step-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--tertiary-06);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1.5px solid var(--tertiary-24);
+  }
+
+  .step-item-text {
+    font-size: 14px;
+    color: var(--primary-text);
+    line-height: 1.45;
+    padding-top: 3px;
+  }
+  .step-item-text strong {
+    font-weight: 600;
+  }
+  .step-item-text .hint {
+    display: block;
+    font-size: 12px;
+    color: var(--secondary-400);
+    margin-top: 2px;
+  }
+
+  /* Info card */
+  .info-card {
+    background: var(--tertiary-06);
+    border: 1px solid var(--tertiary-24);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 8px 0 16px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .info-card .info-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--primary);
+    margin-top: 1px;
+  }
+  .info-card p {
+    font-size: 13px;
+    color: var(--primary-text);
+    line-height: 1.45;
+  }
+
+  /* Checklist */
+  .checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 4px 0 16px;
+  }
+  .check-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .check-circle {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--tertiary-24);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .check-circle svg { width: 13px; height: 13px; }
+  .check-item span {
+    font-size: 14px;
+    color: var(--primary-text);
+    font-weight: 500;
+  }
+
+  /* Bottom actions area */
+  .actions {
+    padding: 0 24px 24px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 16px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.2px;
+    transition: background 0.15s;
+  }
+  .btn-primary:hover { background: var(--primary-dark); }
+
+  .btn-secondary {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    color: var(--secondary-400);
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .btn-outline {
+    width: 100%;
+    padding: 14px;
+    background: var(--white);
+    color: var(--primary);
+    border: 1.5px solid var(--tertiary-24);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* === ILLUSTRATIONS === */
+
+  /* Watch illustration */
+  .watch-illust {
+    width: 140px;
+    height: 140px;
+    position: relative;
+  }
+  .watch-body {
+    width: 90px;
+    height: 104px;
+    background: var(--watch-bg);
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #2D3356;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .watch-band-top, .watch-band-bottom {
+    width: 52px;
+    height: 26px;
+    background: #2D3356;
+    border-radius: 4px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .watch-band-top { top: 2px; border-radius: 4px 4px 0 0; }
+  .watch-band-bottom { bottom: 2px; border-radius: 0 0 4px 4px; }
+  .watch-btn {
+    width: 6px;
+    height: 16px;
+    background: #2D3356;
+    border-radius: 0 3px 3px 0;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .watch-screen-content {
+    color: var(--watch-text);
+    text-align: center;
+    font-size: 9px;
+    font-weight: 600;
+    z-index: 1;
+    padding: 6px;
+    line-height: 1.3;
+  }
+  .watch-screen-content .watch-icon {
+    font-size: 22px;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  /* Shield + watch combo */
+  .shield-combo {
+    position: relative;
+    width: 180px;
+    height: 160px;
+  }
+  .shield-bg {
+    width: 120px;
+    height: 140px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Phone + Watch pairing illust */
+  .pair-illust {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+  }
+  .phone-mini {
+    width: 52px;
+    height: 90px;
+    background: var(--white);
+    border: 2.5px solid #D1D5DB;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .phone-mini-notch {
+    width: 20px;
+    height: 4px;
+    background: #D1D5DB;
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+  }
+  .phone-mini-screen {
+    font-size: 18px;
+  }
+  .pair-dots {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  .pair-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0.4;
+    animation: pairPulse 1.5s ease-in-out infinite;
+  }
+  .pair-dot:nth-child(2) { animation-delay: 0.2s; opacity: 0.6; }
+  .pair-dot:nth-child(3) { animation-delay: 0.4s; opacity: 0.8; }
+  .pair-dot:nth-child(4) { animation-delay: 0.6s; opacity: 1; }
+  @keyframes pairPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+  }
+  .watch-mini {
+    width: 52px;
+    height: 62px;
+    background: var(--watch-bg);
+    border-radius: 14px;
+    border: 2.5px solid #2D3356;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .watch-mini-band-t, .watch-mini-band-b {
+    width: 30px;
+    height: 10px;
+    background: #2D3356;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .watch-mini-band-t { top: -10px; border-radius: 3px 3px 0 0; }
+  .watch-mini-band-b { bottom: -10px; border-radius: 0 0 3px 3px; }
+  .watch-mini-screen { font-size: 16px; }
+
+  /* Play Store illustration */
+  .playstore-illust {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .playstore-icon-wrap {
+    width: 72px;
+    height: 72px;
+    background: var(--white);
+    border-radius: 16px;
+    border: 2px solid var(--grey-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .playstore-icon-wrap svg { width: 40px; height: 40px; }
+  .app-search-bar {
+    width: 160px;
+    height: 32px;
+    background: var(--grey-200);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 6px;
+  }
+  .app-search-bar svg { width: 14px; height: 14px; color: var(--secondary-400); }
+  .app-search-bar span {
+    font-size: 12px;
+    color: var(--secondary-400);
+    font-weight: 500;
+  }
+
+  /* App card */
+  .app-card {
+    background: var(--white);
+    border: 1.5px solid var(--grey-200);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    width: 200px;
+    margin-top: 4px;
+  }
+  .app-card-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--primary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .app-card-icon svg { width: 24px; height: 24px; color: white; }
+  .app-card-info { flex: 1; }
+  .app-card-info .name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-text);
+  }
+  .app-card-info .dev {
+    font-size: 10px;
+    color: var(--secondary-400);
+  }
+  .app-card .install-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Success illustration */
+  .success-illust {
+    position: relative;
+    width: 160px;
+    height: 140px;
+  }
+  .success-shield {
+    width: 100px;
+    height: 116px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  .sparkle:nth-child(2) { top: 10px; right: 20px; animation-delay: 0.3s; width: 6px; height: 6px; background: var(--tertiary-24); }
+  .sparkle:nth-child(3) { bottom: 20px; left: 15px; animation-delay: 0.6s; width: 10px; height: 10px; background: var(--tertiary-24); }
+  .sparkle:nth-child(4) { top: 30px; left: 10px; animation-delay: 0.9s; width: 5px; height: 5px; }
+  .sparkle:nth-child(5) { bottom: 10px; right: 15px; animation-delay: 1.2s; width: 7px; height: 7px; background: var(--tertiary-24); }
+  @keyframes sparkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+
+  /* Open app illustration */
+  .open-app-illust {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .watch-large {
+    width: 100px;
+    height: 116px;
+    background: var(--watch-bg);
+    border-radius: 22px;
+    border: 3px solid #2D3356;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    position: relative;
+    padding: 10px 8px;
+  }
+  .watch-large-band-t, .watch-large-band-b {
+    width: 56px;
+    height: 16px;
+    background: #2D3356;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .watch-large-band-t { top: -16px; border-radius: 4px 4px 0 0; }
+  .watch-large-band-b { bottom: -16px; border-radius: 0 0 4px 4px; }
+  .watch-app-row {
+    display: flex;
+    gap: 6px;
+  }
+  .watch-app-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+    background: var(--watch-surface);
+  }
+  .watch-app-dot.active {
+    background: var(--primary);
+    box-shadow: 0 0 8px rgba(19, 174, 140, 0.5);
+  }
+  .watch-arrow {
+    color: var(--watch-warning);
+    font-size: 10px;
+    position: absolute;
+    bottom: 16px;
+    animation: bounce 1s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+
+  /* Fall detection how-it-works */
+  .how-it-works {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 4px 0 12px;
+  }
+  .how-step {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .how-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 20px;
+  }
+  .how-icon.vibrate { background: #FFF3E0; }
+  .how-icon.ask { background: #E8F5E9; }
+  .how-icon.alert { background: #FFEBEE; }
+  .how-text {
+    font-size: 13px;
+    color: var(--primary-text);
+    line-height: 1.4;
+  }
+  .how-text strong { font-weight: 600; }
+
+  /* Tips */
+  .tips-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 4px 0;
+  }
+  .tip-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: var(--tertiary-06);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .tip-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .tip-text {
+    font-size: 13px;
+    color: var(--primary-text);
+    line-height: 1.35;
+    font-weight: 500;
+  }
+
+  /* === NAV ARROW CONNECTORS === */
+  .arrow-connector {
+    display: none;
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 768px) {
+    .phone-carousel {
+      gap: 40px;
+    }
+    body { padding: 24px 12px; }
+  }
+
+  /* Home bottom indicator */
+  .home-indicator {
+    width: 100px;
+    height: 4px;
+    background: #D1D5DB;
+    border-radius: 100px;
+    margin: 8px auto 12px;
+  }
+
+  /* SVG icons inline */
+  .icon-svg { display: inline-flex; }
+
+  /* Flow arrow between screens */
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 24px;
+    opacity: 0.5;
+    margin-top: 300px;
+  }
+  @media (max-width: 768px) {
+    .flow-arrow { display: none; }
+  }
+
+  /* Screen number badge */
+  .screen-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+  }
+
+  /* Annotation */
+  .annotation {
+    max-width: 280px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--secondary-400);
+    line-height: 1.4;
+    margin-top: 4px;
+    font-style: italic;
+  }
+</style>
 </head>
 <body>
-    <div class="progress-bar" id="progressBar"></div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge label-large fade-in">
-                    SDE-L1 • Android Developer
-                </div>
-                <h1 class="display-large fade-in">
-                    Built Complete Healthcare Platform in 6 Months
-                </h1>
-                <p class="body-large hero-subtitle fade-in">
-                    Delivered two production-ready mobile applications serving caregivers and care receivers, 
-                    with advanced health monitoring, emergency response, and real-time communication features.
-                </p>
-                <div class="hero-metrics fade-in">
-                    <div class="metric-card">
-                        <div class="metric-value headline-medium">274 </div>
-                        <div class="metric-label label-medium">Commits</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value headline-medium">2</div>
-                        <div class="metric-label label-medium">Apps Built</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value headline-medium">6</div>
-                        <div class="metric-label label-medium">Months</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value headline-medium">100%</div>
-                        <div class="metric-label label-medium">Complete</div>
-                    </div>
-                </div>
-            </div>
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <span class="badge">UX Proposal</span>
+  <h1>Watch Setup &amp; Fall Detection Guide</h1>
+  <p>Step-by-step onboarding flow shown on the <strong>mobile app</strong> to guide seniors through installing and setting up the watch app for fall detection.</p>
+</div>
+
+<!-- SCREENS CAROUSEL -->
+<div class="phone-carousel">
+
+  <!-- ===================== SCREEN 1 ===================== -->
+  <div class="screen-wrapper">
+    <div class="screen-number">1</div>
+    <div class="screen-label">Intro</div>
+    <div class="phone-frame">
+      <div class="notch"></div>
+      <div class="status-bar">
+        <span class="time">9:41</span>
+        <div class="status-icons">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
         </div>
-    </section>
-
-    <!-- Impact Section -->
-    <section class="section">
-        <div class="container">
-            <div class="impact-grid">
-                <div class="impact-card fade-in">
-                    <div class="impact-icon">🚀</div>
-                    <h3 class="impact-title title-large">Rapid Development</h3>
-                    <p class="impact-description body-medium">
-                        Delivered production-ready healthcare applications from concept to completion in 6 months, 
-                        maintaining high code quality with consistent commit velocity.
-                    </p>
-                </div>
-                <div class="impact-card fade-in">
-                    <div class="impact-icon">🏥</div>
-                    <h3 class="impact-title title-large">Healthcare Innovation</h3>
-                    <p class="impact-description body-medium">
-                        Built comprehensive caregiving solution with emergency response, health monitoring, 
-                        and family communication features that could impact thousands of users.
-                    </p>
-                </div>
-                <div class="impact-card fade-in">
-                    <div class="impact-icon">⚡</div>
-                    <h3 class="impact-title title-large">Technical Excellence</h3>
-                    <p class="impact-description body-medium">
-                        Implemented complex integrations including real-time communication, health APIs, 
-                        payment systems, and cloud services with robust architecture.
-                    </p>
-                </div>
-            </div>
+      </div>
+      <div class="screen-content">
+        <div class="progress-bar-container">
+          <div class="progress-track">
+            <div class="progress-segment active"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+          </div>
         </div>
-    </section>
-
-    <!-- Product Section -->
-    <section class="product-section section">
-        <div class="container">
-            <h2 class="section-title headline-large fade-in">Products Built</h2>
-            <p class="section-subtitle body-large fade-in">
-                Two interconnected mobile applications serving different user roles in the caregiving ecosystem
-            </p>
-            <div class="product-showcase">
-                <div class="product-card fade-in">
-                    <div class="product-header">
-                        <div class="product-badge label-small">For Caregivers</div>
-                        <h3 class="product-title headline-small">KinectedCare Pro</h3>
-                        <p class="product-subtitle body-medium">Healthcare provider and family caregiver platform</p>
-                    </div>
-                    <div class="product-content">
-                        <ul class="feature-list">
-                            <li class="feature-item">
-                                <div class="feature-check">✓</div>
-                                <span class="feature-text body-small">Real-time health monitoring dashboard with Google Health Connect integration</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-check">✓</div>
-                                <span class="feature-text body-small">Multi-group management for overseeing multiple care recipients</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-check">✓</div>
-                                <span class="feature-text body-small">Emergency response coordination with instant notifications</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-check">✓</div>
-                                <span class="feature-text body-small">Subscription billing management with Google Play integration</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-check">✓</div>
-                                <span class="feature-text body-small">Advanced analytics and health trend reporting</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product-card fade-in">
-                    <div class="product-header secondary">
-                        <div class="product-badge label-small">For Care Recipients</div>
-                        <h3 class="product-title headline-small">KinectedCare</h3>
-                        <p class="product-subtitle body-medium">Simple, accessible app for seniors and care recipients</p>
-                    </div>
-                    <div class="product-content">
-                        <ul class="feature-list">
-                            <li class="feature-item">
-                                <div class="feature-check">✓</div>
-                                <span class="feature-text body-small">One-touch emergency assistance with voice activation ("Help me")</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-check">✓</div>
-                                <span class="feature-text body-small">Automatic emergency calling when no response in 60 seconds</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-check">✓</div>
-                                <span class="feature-text body-small">Family communication hub with media sharing</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-check">✓</div>
-                                <span class="feature-text body-small">Location sharing for safety and peace of mind</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-check">✓</div>
-                                <span class="feature-text body-small">Simplified UI designed for accessibility and ease of use</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <div class="step-indicator">
+          <span class="step-text">Step 1 of 5</span>
+          <button class="skip-btn">Maybe Later</button>
         </div>
-    </section>
-
-    <!-- Development Journey -->
-    <section class="timeline-section section">
-        <div class="container">
-            <h2 class="section-title headline-large fade-in">6-Month Development Sprint</h2>
-            <p class="section-subtitle body-large fade-in">From concept to production-ready healthcare platform</p>
-            
-            <div class="development-progress fade-in">
-                <div class="progress-header">
-                    <div class="total-commits">
-                        <span class="commit-number headline-large">274</span>
-                        <span class="commit-label body-medium">Total Commits</span>
-                    </div>
-                    <div class="progress-visual">
-                        <div class="simple-chart">
-                            <div class="chart-header">
-                                <h3 class="chart-title">Monthly Commit Activity</h3>
-                                <p class="chart-subtitle">Development intensity by month</p>
-                            </div>
-                            
-                            <div class="chart-container">
-                                <div class="chart-bars">
-                                    <div class="bar-item">
-                                        <div class="bar" style="height: 56%;">
-                                            <span class="bar-value">47</span>
-                                        </div>
-                                        <div class="bar-label">Apr</div>
-                                    </div>
-                                    
-                                    <div class="bar-item">
-                                        <div class="bar" style="height: 43%;">
-                                            <span class="bar-value">36</span>
-                                        </div>
-                                        <div class="bar-label">May</div>
-                                    </div>
-                                    
-                                    <div class="bar-item">
-                                        <div class="bar" style="height: 58%;">
-                                            <span class="bar-value">49</span>
-                                        </div>
-                                        <div class="bar-label">Jun</div>
-                                    </div>
-                                    
-                                    <div class="bar-item peak">
-                                        <div class="bar" style="height: 100%;">
-                                            <span class="bar-value">84</span>
-                                            <span class="peak-badge">PEAK</span>
-                                        </div>
-                                        <div class="bar-label">Jul</div>
-                                    </div>
-                                    
-                                    <div class="bar-item">
-                                        <div class="bar" style="height: 45%;">
-                                            <span class="bar-value">58</span>
-                                        </div>
-                                        <div class="bar-label">Aug</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="chart-axis">
-                                    <span class="axis-label">0</span>
-                                    <span class="axis-label">20</span>
-                                    <span class="axis-label">40</span>
-                                    <span class="axis-label">60</span>
-                                    <span class="axis-label">80</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="inner">
+          <div class="illustration">
+            <div class="shield-combo">
+              <!-- Shield SVG -->
+              <svg class="shield-bg" viewBox="0 0 120 140" fill="none">
+                <path d="M60 8L16 30v40c0 35 19 55 44 65 25-10 44-30 44-65V30L60 8z" fill="#F1FAF8" stroke="#C6ECE3" stroke-width="2"/>
+                <path d="M60 40L46 66h28L60 40z" fill="#13AE8C" opacity="0.15"/>
+                <circle cx="60" cy="72" r="20" fill="#13AE8C" opacity="0.1"/>
+                <!-- Watch icon inside shield -->
+                <rect x="44" y="52" width="32" height="40" rx="8" fill="#0A0E27" stroke="#2D3356" stroke-width="2"/>
+                <rect x="52" y="44" width="16" height="8" rx="2" fill="#2D3356"/>
+                <rect x="52" y="92" width="16" height="8" rx="2" fill="#2D3356"/>
+                <circle cx="60" cy="68" r="4" fill="#4ECDC4"/>
+                <path d="M57 72l3 3 5-6" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+              <div class="sparkle" style="top:5px;right:25px"></div>
+              <div class="sparkle"></div>
+              <div class="sparkle"></div>
+              <div class="sparkle"></div>
+              <div class="sparkle"></div>
             </div>
+          </div>
 
-            <div class="monthly-breakdown">
-                <div class="month-card fade-in" style="animation-delay: 0.1s">
-                    <div class="month-header">
-                        <div class="month-name title-large">April 2025</div>
-                        <div class="commit-badge">47 commits</div>
-                    </div>
-                    <div class="month-content">
-                        <h4 class="milestone-title title-medium">Foundation & Architecture</h4>
-                        <div class="achievements">
-                            <div class="achievement-item">
-                                <span class="achievement-icon">🏗️</span>
-                                <span class="achievement-text">Project setup & architecture design</span>
-                            </div>
-                            <div class="achievement-item">
-                                <span class="achievement-icon">📦</span>
-                                <span class="achievement-text">Dependency management & optimization</span>
-                            </div>
-                            <div class="achievement-item">
-                                <span class="achievement-icon">💾</span>
-                                <span class="achievement-text">Backup systems implementation</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <h2>Protect Yourself with Fall Detection</h2>
+          <p class="subtitle">Your smartwatch can detect if you fall and automatically alert your family — even if you can't reach your phone.</p>
 
-                <div class="month-card fade-in" style="animation-delay: 0.2s">
-                    <div class="month-header">
-                        <div class="month-name title-large">May 2025</div>
-                        <div class="commit-badge">36 commits</div>
-                    </div>
-                    <div class="month-content">
-                        <h4 class="milestone-title title-medium">Core Features Development</h4>
-                        <div class="achievements">
-                            <div class="achievement-item">
-                                <span class="achievement-icon">📞</span>
-                                <span class="achievement-text">ZegoCloud call integration</span>
-                            </div>
-                            <div class="achievement-item">
-                                <span class="achievement-icon">📍</span>
-                                <span class="achievement-text">Location tracking & mapping</span>
-                            </div>
-                            <div class="achievement-item">
-                                <span class="achievement-icon">🎤</span>
-                                <span class="achievement-text">Voice recognition for emergencies</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="month-card fade-in" style="animation-delay: 0.3s">
-                    <div class="month-header">
-                        <div class="month-name title-large">June 2025</div>
-                        <div class="commit-badge">49 commits</div>
-                    </div>
-                    <div class="month-content">
-                        <h4 class="milestone-title title-medium">Platform Integration</h4>
-                        <div class="achievements">
-                            <div class="achievement-item">
-                                <span class="achievement-icon">❤️</span>
-                                <span class="achievement-text">Google Health ConnectAPI</span>
-                            </div>
-                            <div class="achievement-item">
-                                <span class="achievement-icon">🔐</span>
-                                <span class="achievement-text">Authentication & security systems</span>
-                            </div>
-                            <div class="achievement-item">
-                                <span class="achievement-icon">👥</span>
-                                <span class="achievement-text">Group management framework</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="month-card peak-month fade-in" style="animation-delay: 0.4s">
-                    <div class="month-header">
-                        <div class="month-name title-large">July 2025</div>
-                        <div class="commit-badge peak">84 commits</div>
-                        <div class="peak-label">Peak Productivity</div>
-                    </div>
-                    <div class="month-content">
-                        <h4 class="milestone-title title-medium">Advanced Features & Polish</h4>
-                        <div class="achievements">
-                            <div class="achievement-item">
-                                <span class="achievement-icon">💳</span>
-                                <span class="achievement-text">Subscription & billing management</span>
-                            </div>
-                            <div class="achievement-item">
-                                <span class="achievement-icon">📱</span>
-                                <span class="achievement-text">OTP verification & enhanced UX</span>
-                            </div>
-                            <div class="achievement-item">
-                                <span class="achievement-icon">💬</span>
-                                <span class="achievement-text">Advanced chat functionality</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="month-card fade-in" style="animation-delay: 0.5s">
-                    <div class="month-header">
-                        <div class="month-name title-large">August 2025</div>
-                        <div class="commit-badge">58 commits</div>
-                    </div>
-                    <div class="month-content">
-                        <h4 class="milestone-title title-medium">Production Ready</h4>
-                        <div class="achievements">
-                            <div class="achievement-item">
-                                <span class="achievement-icon">⚡</span>
-                                <span class="achievement-text">Performance optimization</span>
-                            </div>
-                            <div class="achievement-item">
-                                <span class="achievement-icon">🤖</span>
-                                <span class="achievement-text">AI features integration</span>
-                            </div>
-                            <div class="achievement-item">
-                                <span class="achievement-icon">✅</span>
-                                <span class="achievement-text">Quality assurance & testing</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="checklist">
+            <div class="check-item">
+              <div class="check-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <span>A Wear OS smartwatch (charged)</span>
             </div>
+            <div class="check-item">
+              <div class="check-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <span>This phone connected to your watch</span>
+            </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Tech Stack -->
-    <section class="tech-section section">
-        <div class="container">
-            <h2 class="section-title headline-large fade-in">Technology Stack</h2>
-            <p class="section-subtitle body-large fade-in">Modern Android development with complex third-party integrations</p>
-            <div class="tech-grid">
-                <div class="tech-chip body-medium fade-in">Kotlin</div>
-                <div class="tech-chip body-medium fade-in">Jetpack Compose</div>
-                <div class="tech-chip body-medium fade-in">Room Database</div>
-                <div class="tech-chip body-medium fade-in">WorkManager</div>
-                <div class="tech-chip body-medium fade-in">Socket.IO</div>
-                <div class="tech-chip body-medium fade-in">ZegoCloud SDK</div>
-                <div class="tech-chip body-medium fade-in">Google Play Billing</div>
-                <div class="tech-chip body-medium fade-in">Health Connect API</div>
-                <div class="tech-chip body-medium fade-in">Google Drive API</div>
-                <div class="tech-chip body-medium fade-in">OneSignal</div>
-                <div class="tech-chip body-medium fade-in">Location Services</div>
-                <div class="tech-chip body-medium fade-in">Voice Recognition</div>
-                <div class="tech-chip body-medium fade-in">MVVM Architecture</div>
-                <div class="tech-chip body-medium fade-in">Coroutines & Flow</div>
-            </div>
+        <div class="actions">
+          <button class="btn-primary">Set Up My Watch</button>
+          <button class="btn-secondary">I'll Do This Later</button>
         </div>
-    </section>
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+    <p class="annotation">Shown after login or when tapping the watch icon on home screen</p>
+  </div>
 
-    <!-- CTA Section -->
-    <section class="cta-section section">
-        <div class="container">
-            <div class="fade-in">
-                <h2 class="headline-large" style="margin-bottom: 16px;">Jasmeet Singh</h2>
-                <p class="body-large" style="margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    SDE-L1 Android Developer who delivered a complete healthcare platform, 
-                    demonstrating ability to build complex, user-focused applications that solve real-world problems.
-                </p>
-                <div class="cta-stats">
-                    <div class="cta-stat">
-                        <span class="cta-stat-value headline-medium">274</span>
-                        <span class="cta-stat-label body-medium">Total Commits</span>
-                    </div>
-                    <div class="cta-stat">
-                        <span class="cta-stat-value headline-medium">6</span>
-                        <span class="cta-stat-label body-medium">Months</span>
-                    </div>
-                    <div class="cta-stat">
-                        <span class="cta-stat-value headline-medium">2</span>
-                        <span class="cta-stat-label body-medium">Complete Apps</span>
-                    </div>
+  <!-- ===================== SCREEN 2 ===================== -->
+  <div class="screen-wrapper">
+    <div class="screen-number">2</div>
+    <div class="screen-label">Pair Watch</div>
+    <div class="phone-frame">
+      <div class="notch"></div>
+      <div class="status-bar">
+        <span class="time">9:41</span>
+        <div class="status-icons">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+        </div>
+      </div>
+      <div class="screen-content">
+        <div class="progress-bar-container">
+          <div class="progress-track">
+            <div class="progress-segment active"></div>
+            <div class="progress-segment active"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+          </div>
+        </div>
+        <div class="step-indicator">
+          <span class="step-text">Step 2 of 5</span>
+          <button class="skip-btn">Skip</button>
+        </div>
+        <div class="inner">
+          <div class="illustration">
+            <div class="pair-illust">
+              <div class="phone-mini">
+                <div class="phone-mini-notch"></div>
+                <span class="phone-mini-screen" style="margin-top:6px">📱</span>
+              </div>
+              <div class="pair-dots">
+                <div class="pair-dot"></div>
+                <div class="pair-dot"></div>
+                <div class="pair-dot"></div>
+                <div class="pair-dot"></div>
+              </div>
+              <div style="position:relative">
+                <div class="watch-mini">
+                  <div class="watch-mini-band-t"></div>
+                  <span class="watch-mini-screen">⌚</span>
+                  <div class="watch-mini-band-b"></div>
                 </div>
+              </div>
             </div>
+          </div>
+
+          <h2>Is Your Watch Paired?</h2>
+          <p class="subtitle">Your watch and phone need to be connected via Bluetooth. If they're already paired, you're all set!</p>
+
+          <div class="info-card">
+            <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
+            <p><strong>Not paired yet?</strong> Open the <strong>"Watch"</strong> app on your phone (it has a watch icon), then tap <strong>"Add Watch"</strong> and follow the steps.</p>
+          </div>
+
+          <div class="steps-list">
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-item-text">
+                Open the <strong>Watch app</strong> on your phone
+                <span class="hint">Look for a watch icon on your home screen</span>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-item-text">
+                Tap <strong>"Add Watch"</strong> or <strong>"Pair New Device"</strong>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-item-text">
+                Follow the on-screen instructions
+                <span class="hint">Make sure your watch is turned on and nearby</span>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
 
-    <script>
-        // Progress Bar
-        function updateProgress() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-        }
+        <div class="actions">
+          <button class="btn-primary">My Watch Is Paired</button>
+          <button class="btn-outline">I Need Help Pairing</button>
+        </div>
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+    <p class="annotation">Auto-skip if watch is already detected via Bluetooth</p>
+  </div>
 
-        window.addEventListener('scroll', updateProgress);
+  <!-- ===================== SCREEN 3 ===================== -->
+  <div class="screen-wrapper">
+    <div class="screen-number">3</div>
+    <div class="screen-label">Install App</div>
+    <div class="phone-frame">
+      <div class="notch"></div>
+      <div class="status-bar">
+        <span class="time">9:42</span>
+        <div class="status-icons">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+        </div>
+      </div>
+      <div class="screen-content">
+        <div class="progress-bar-container">
+          <div class="progress-track">
+            <div class="progress-segment active"></div>
+            <div class="progress-segment active"></div>
+            <div class="progress-segment active"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+          </div>
+        </div>
+        <div class="step-indicator">
+          <span class="step-text">Step 3 of 5</span>
+          <button class="skip-btn"></button>
+        </div>
+        <div class="inner">
+          <div class="illustration">
+            <div class="playstore-illust">
+              <div class="playstore-icon-wrap">
+                <!-- Play Store triangle -->
+                <svg viewBox="0 0 40 40" fill="none">
+                  <path d="M8 4.8v30.4c0 1.2 1.3 1.9 2.3 1.2L34 21.2c1-.7 1-2.1 0-2.8L10.3 3.6C9.3 2.9 8 3.6 8 4.8z" fill="url(#playGrad)"/>
+                  <defs>
+                    <linearGradient id="playGrad" x1="8" y1="4" x2="34" y2="36">
+                      <stop stop-color="#4ECDC4"/>
+                      <stop offset="0.5" stop-color="#13AE8C"/>
+                      <stop offset="1" stop-color="#0F9577"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <div class="app-search-bar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <span>KinectedCare</span>
+              </div>
+              <div class="app-card">
+                <div class="app-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <div class="app-card-info">
+                  <div class="name">KinectedCare</div>
+                  <div class="dev">Kinected Inc.</div>
+                </div>
+                <button class="install-btn">Install</button>
+              </div>
+            </div>
+          </div>
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+          <h2>Install the Watch App</h2>
+          <p class="subtitle">The easiest way — use your phone to install the app on your watch remotely.</p>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+          <div class="steps-list">
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-item-text">
+                Open <strong>Play Store</strong> on your <strong>phone</strong>
+                <span class="hint">The colourful triangle icon</span>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-item-text">
+                Search for <strong>"KinectedCare"</strong>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-item-text">
+                Look for the <strong>watch version</strong> and tap <strong>Install</strong>
+                <span class="hint">It will say "Wear OS" or show a watch icon</span>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-item-text">
+                Wait for it to install on your watch
+                <span class="hint">This may take a minute or two</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+        <div class="actions">
+          <button class="btn-primary">I've Installed It</button>
+          <button class="btn-outline">Show Me on the Watch Instead</button>
+        </div>
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+    <p class="annotation">Could use RemoteActivityHelper to auto-open Play Store on watch</p>
+  </div>
 
-        // Smooth scrolling
-        document.documentElement.style.scrollBehavior = 'smooth';
-    </script>
+  <!-- ===================== SCREEN 4 ===================== -->
+  <div class="screen-wrapper">
+    <div class="screen-number">4</div>
+    <div class="screen-label">Open &amp; Allow</div>
+    <div class="phone-frame">
+      <div class="notch"></div>
+      <div class="status-bar">
+        <span class="time">9:43</span>
+        <div class="status-icons">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+        </div>
+      </div>
+      <div class="screen-content">
+        <div class="progress-bar-container">
+          <div class="progress-track">
+            <div class="progress-segment active"></div>
+            <div class="progress-segment active"></div>
+            <div class="progress-segment active"></div>
+            <div class="progress-segment active"></div>
+            <div class="progress-segment"></div>
+          </div>
+        </div>
+        <div class="step-indicator">
+          <span class="step-text">Step 4 of 5</span>
+          <button class="skip-btn"></button>
+        </div>
+        <div class="inner">
+          <div class="illustration">
+            <div class="open-app-illust">
+              <div style="position:relative">
+                <div class="watch-large">
+                  <div class="watch-large-band-t"></div>
+                  <div class="watch-app-row">
+                    <div class="watch-app-dot"></div>
+                    <div class="watch-app-dot"></div>
+                    <div class="watch-app-dot active"></div>
+                  </div>
+                  <div class="watch-app-row">
+                    <div class="watch-app-dot"></div>
+                    <div class="watch-app-dot"></div>
+                    <div class="watch-app-dot"></div>
+                  </div>
+                  <span class="watch-arrow">▲ tap here</span>
+                  <div class="watch-large-band-b"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h2>Open the App on Your Watch</h2>
+          <p class="subtitle">Now let's open KinectedCare on your watch and give it permission to protect you.</p>
+
+          <div class="steps-list">
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-item-text">
+                On your watch, press the <strong>side button</strong>
+                <span class="hint">This shows all your watch apps</span>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-item-text">
+                Scroll down and tap <strong>"KinectedCare"</strong>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-item-text">
+                The watch will ask for permission — tap <strong>"Allow"</strong>
+                <span class="hint">This lets the watch detect falls using its motion sensor</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
+            <p>A popup will appear on your watch saying <strong>"Allow activity recognition?"</strong> — tap <strong>Allow</strong>. This is safe and required.</p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn-primary">I've Done This</button>
+          <button class="btn-outline">I Can't Find the App</button>
+        </div>
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+    <p class="annotation">Auto-advance when watch ping/pong connection succeeds</p>
+  </div>
+
+  <!-- ===================== SCREEN 5 ===================== -->
+  <div class="screen-wrapper">
+    <div class="screen-number">5</div>
+    <div class="screen-label">All Set</div>
+    <div class="phone-frame">
+      <div class="notch"></div>
+      <div class="status-bar">
+        <span class="time">9:44</span>
+        <div class="status-icons">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+        </div>
+      </div>
+      <div class="screen-content">
+        <div class="progress-bar-container">
+          <div class="progress-track">
+            <div class="progress-segment active"></div>
+            <div class="progress-segment active"></div>
+            <div class="progress-segment active"></div>
+            <div class="progress-segment active"></div>
+            <div class="progress-segment active"></div>
+          </div>
+        </div>
+        <div class="step-indicator">
+          <span class="step-text">Complete</span>
+          <button class="skip-btn"></button>
+        </div>
+        <div class="inner">
+          <div class="illustration">
+            <div class="success-illust">
+              <svg class="success-shield" viewBox="0 0 100 116" fill="none">
+                <path d="M50 4L8 24v36c0 30 18 48 42 56 24-8 42-26 42-56V24L50 4z" fill="#F1FAF8" stroke="#13AE8C" stroke-width="2"/>
+                <circle cx="50" cy="56" r="22" fill="#13AE8C" opacity="0.12"/>
+                <circle cx="50" cy="56" r="16" fill="#13AE8C"/>
+                <path d="M42 56l6 6 12-12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="sparkle" style="top:5px;right:10px"></div>
+              <div class="sparkle"></div>
+              <div class="sparkle"></div>
+              <div class="sparkle"></div>
+              <div class="sparkle"></div>
+            </div>
+          </div>
+
+          <h2>You're Protected!</h2>
+          <p class="subtitle">Fall detection is now active. You don't need to do anything else — just wear your watch.</p>
+
+          <div style="margin: 4px 0 6px">
+            <p style="font-size:13px;font-weight:600;color:var(--primary-text);margin-bottom:10px">If you fall, here's what happens:</p>
+            <div class="how-it-works">
+              <div class="how-step">
+                <div class="how-icon vibrate">📳</div>
+                <div class="how-text"><strong>Watch vibrates</strong> and beeps to get your attention</div>
+              </div>
+              <div class="how-step">
+                <div class="how-icon ask">💬</div>
+                <div class="how-text"><strong>Asks "Are you okay?"</strong> — tap "I'm fine" if it's a false alarm</div>
+              </div>
+              <div class="how-step">
+                <div class="how-icon alert">🚨</div>
+                <div class="how-text"><strong>No response?</strong> Your family is alerted automatically</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tips-grid">
+            <div class="tip-item">
+              <span class="tip-icon">⌚</span>
+              <span class="tip-text">Wear your watch snugly, all day</span>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">📱</span>
+              <span class="tip-text">Keep your phone nearby &amp; charged</span>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">🔋</span>
+              <span class="tip-text">Charge both devices every night</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn-primary">Done</button>
+        </div>
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+    <p class="annotation">Could auto-verify connection before showing this screen</p>
+  </div>
+
+</div>
+
 </body>
 </html>
